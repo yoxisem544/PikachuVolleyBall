@@ -1,0 +1,1210 @@
+*PPD-Adobe: "4.3"
+*%================================================
+*%	Copyright(C) 2013 Brother Industries, Ltd.
+*%	"Brother HL-1110 series for CUPS"
+*%================================================ 
+
+*%==== General Information Keywords ========================
+*FormatVersion: "4.3"
+*FileVersion: "4.0.3"
+*LanguageEncoding: ISOLatin1
+*LanguageVersion: English
+*PCFileName: "HL1110.PPD"
+*Manufacturer: "Brother"
+*Product: "(HL-1110 series)"
+*1284DeviceID: "MFG:Brother;MDL:HL-1110 series"
+*cupsVersion: 1.4
+*cupsManualCopies: False
+*cupsFilter:    "application/vnd.cups-raster 0 /Library/Printers/Brother/Filter/rastertobrother1110P.bundle/Contents/MacOS/rastertobrother1110P"
+*cupsFilter: "application/vnd.cups-command 0 /Library/Printers/Brother/Filter/commandtobrother.bundle/Contents/MacOS/commandtobrother"
+*cupsCommands: "ReportLevels PJLBidirectional PJLWrite PJLRead"
+*cupsSNMPSupplies: False
+*cupsModelNumber: 8
+*APHelpBook: "file:///Library/Printers/Brother/Help/BRCommand.help"
+*PSVersion: "(3010.106) 3"
+*ModelName: "Brother HL-1110 series"
+*ShortNickName: "HL-1110 series"
+*NickName: "Brother HL-1110 series CUPS"
+*APDialogExtension: "/Library/Printers/Brother/PDEs/BRMLQuality12.bundle"
+*%APICADriver: True
+*APPrinterIconPath: "/Library/Printers/Brother/Icons/BRLaser1110.icns"
+*APPrinterUtilityPath: "/Library/Printers/Brother/Utilities/BrStatusMonitor.app"
+*%APPrinterLowInkTool: "/Library/Printers/Brother/Utilities/BrSupplyTool.app/Contents/MacOS/BrSupplyTool"
+*APAutoSetupTool: "/Library/Printers/Brother/Utilities/BRAutoSetup.bundle/Contents/MacOS/BRAutoSetup"
+
+*%==== Supply Name & Status Message ========================
+*cupsMarkerName Black/Toner Cartridge: ""
+*cupsMarkerName OPC/OPC Belt: ""
+*cupsMarkerName WasteToner/Waste Toner Pack: ""
+*cupsMarkerName Fuser/Fusing Unit: ""
+*cupsMarkerName 60KKit/60K Kit: ""
+*cupsMarkerName 120KKit/120K Kit: ""
+*cupsMarkerName 240KKit/240K Kit: ""
+*cupsMarkerName PFKit1/PF Kit1: ""
+*cupsMarkerName PFKit2/PF Kit2: ""
+*cupsMarkerName PFKit3/PF Kit3: ""
+*cupsMarkerName PFKit4/PF Kit4: ""
+*cupsMarkerName Drum/Drum Unit: ""
+*cupsIPPReason com.brother.marker-supply-empty-warning/Replace Toner: ""
+*cupsIPPReason com.brother.generic-warning/　: ""
+
+*%==== Basic Device Capabilities =============
+*LanguageLevel: "3"
+*TTRasterizer: Type42
+*ColorDevice: False
+*DefaultColorSpace: Gray
+*FileSystem: True
+*?FileSystem:"
+save 
+	/devname (%disk0%) def 
+	/ret false def 
+	0 1 7{ 
+		devname exch 48 add 5 exch put 
+		devname devstatus { 
+			0 ne {/ret true def}if 
+			pop pop pop pop pop pop pop 
+		}if 
+	}for 
+	ret {(True)}{(False)} ifelse = flush 
+restore 
+" 
+*End
+
+*Throughput: "18"
+*FreeVM: "1700000"
+
+*%========Toner Save Print============================
+*APPrinterPreset TonerSavePrint/Toner Save Print: "
+   *BRResolution 300x600dpi
+   *BRMediaType Plain
+   *TonerSaveMode ON
+   *BRHalfTonePattern Brother
+   *BRInputSlot AutoSelect
+   com.apple.print.preset.graphicsType General
+   com.apple.print.preset.media-front-coating none
+   com.apple.print.preset.quality mid"
+*End
+
+*%=== UI Constraints ==================================
+
+*%==== Paper Size Information ===================
+*OpenUI *PageSize/Media Size: PickOne
+*OrderDependency: 17 AnySetup *PageSize
+*DefaultPageSize: Letter
+*PageSize A4/A4:						"<</PageSize[595 842]/ImagingBBox null>>setpagedevice"
+*PageSize Letter/Letter:				"<</PageSize[612 792]/ImagingBBox null>>setpagedevice"
+*PageSize Legal/Legal:					"<</PageSize[612 1008]/ImagingBBox null>>setpagedevice"
+*PageSize FanFoldGermanLegal/Folio: 	"<</PageSize[612 936]/ImagingBBox null>>setpagedevice"
+*CloseUI: *PageSize
+
+*OpenUI *PageRegion: PickOne
+*OrderDependency: 17 AnySetup *PageRegion
+*DefaultPageRegion: Letter
+*PageRegion A4/A4:							"<</PageSize[595 842]/ImagingBBox null>>setpagedevice"
+*PageRegion Letter/Letter:					"<</PageSize[612 792]/ImagingBBox null>>setpagedevice"
+*PageRegion Legal/Legal:					"<</PageSize[612 1008]/ImagingBBox null>>setpagedevice"
+*PageRegion FanFoldGermanLegal/Folio:		"<</PageSize[612 936]/ImagingBBox null>>setpagedevice"
+*CloseUI: *PageRegion
+
+*DefaultImageableArea: Letter
+*ImageableArea A4/A4:							"12 12 583 830"
+*ImageableArea Letter/Letter:					"12 12 600 780"
+*ImageableArea Legal/Legal:						"12 12 600 996"
+*ImageableArea FanFoldGermanLegal/Folio:		"12 12 600 924"
+
+*DefaultPaperDimension: Letter
+*PaperDimension A4/A4:							"595 842"
+*PaperDimension Letter/Letter:					"612 792"
+*PaperDimension Legal/Legal:					"612 1008"
+*PaperDimension FanFoldGermanLegal/Folio:		"612 936"
+
+*%==== Custom Page SIzes ====================
+*NonUIOrderDependency: 40 AnySetup *CustomPageSize
+*VariablePaperSize: True
+*LeadingEdge Short: ""
+*DefaultLeadingEdge: Short
+*MaxMediaWidth: "612"
+*MaxMediaHeight: "1008"
+*HWMargins: 12 12 12 12
+*CustomPageSize True: "
+	<</BRCustomPageSize true>> setpagedevice
+	pop pop pop 
+	<< /PageSize [ 5 -2 roll ] /ImagingBBox null >> 
+	setpagedevice 
+"
+*End
+*ParamCustomPageSize Width: 1 points 595 612
+*ParamCustomPageSize Height: 2 points 792 1008
+*ParamCustomPageSize WidthOffset: 3 points 0 0
+*ParamCustomPageSize HeightOffset: 4 points 0 0
+*ParamCustomPageSize Orientation: 5 int 0 3
+
+*%=== Duplex ================================
+
+*%==== Information About Media Sizes ========
+*OpenUI *BRMediaType/Media Type: PickOne
+*OrderDependency: 28 AnySetup *BRMediaType
+*DefaultBRMediaType: Plain
+*BRMediaType Plain/Plain Paper:			"<</cupsMediaType 1>>setpagedevice"
+*BRMediaType Recycled/Recycled Paper:	"<</cupsMediaType 10>>setpagedevice"
+*CloseUI: *BRMediaType
+
+*%==== Information About Paper Feed ========
+
+*RequiresPageRegion All:True
+
+*%==== Resolution =================================
+*OpenUI *BRResolution/Print Quality: PickOne
+*OrderDependency: 11 AnySetup *BRResolution
+*DefaultBRResolution: 300x600dpi
+*BRResolution 300dpi/Draft: "<</HWResolution [300 300]/cupsColorOrder 0/cupsColorSpace 3 >> setpagedevice"
+*BRResolution 300x600dpi/Normal: "<</HWResolution [300 300]/cupsColorOrder 0/cupsColorSpace 3 >> setpagedevice"
+*BRResolution 600dpi/Fine: "<</HWResolution [600 600]/cupsColorOrder 0/cupsColorSpace 3 >> setpagedevice"
+*CloseUI: *BRResolution
+
+*%=== Halftone Pattern ================================
+*OpenUI *BRHalfTonePattern/Graphics Quality: PickOne
+*OrderDependency: 22 AnySetup * BRHalfTonePattern
+*DefaultBRHalfTonePattern: Brother
+*BRHalfTonePattern Brother/Graphics: "<</cupsBitsPerColor 8 >> setpagedevice"
+*BRHalfTonePattern Brother4/Text: "<</cupsBitsPerColor 8 >> setpagedevice"
+*CloseUI: *BRHalfTonePattern
+
+*%=== Toner Save Mode================================
+*OpenUI *TonerSaveMode/Toner Save Mode: PickOne
+*OrderDependency: 10 AnySetup  *TonerSaveMode
+*DefaultTonerSaveMode: OFF
+*TonerSaveMode OFF/Off: ""
+*TonerSaveMode ON/On: ""
+*CloseUI: *TonerSaveMode
+
+*%=== Improve Print Output ================================
+*OpenUI *BRImproveOutput/Improvement Settings: PickOne
+*OrderDependency: 30 AnySetup *BRImproveOutput
+*DefaultBRImproveOutput: OFF
+*BRImproveOutput OFF/Off: ""
+*BRImproveOutput BRLessPaperCurl/Reduce Paper Curl: ""
+*BRImproveOutput BRFixIntensity/Improve Toner Fixing: ""
+*CloseUI: *BRImproveOutput
+
+*%==== Sleep Time ============================
+
+*%=== Send Fax ================================
+
+*%=== Skip Blank Page ================================
+*OpenUI *BRSkipBlank/Skip Blank Page: PickOne
+*OrderDependency: 31 AnySetup *BRSkipBlank
+*DefaultBRSkipBlank: OFF
+*BRSkipBlank OFF/Off: ""
+*BRSkipBlank ON/On: ""
+*CloseUI: *BRSkipBlank
+
+*%=== Reduce Ghosting ================================
+
+*%==== Density Adjustment ============================
+*OpenUI *BRDensityAdjustment/Density Adjustment: PickOne
+*OrderDependency: 33 AnySetup *BRDensityAdjustment
+*DefaultBRDensityAdjustment: Default
+*BRDensityAdjustment Default/Printer Default: ""
+*BRDensityAdjustment Custom/Manual: ""
+*CloseUI: *BRDensityAdjustment
+
+*% Custom Density Adjustment option/Manual
+*CustomBRDensityAdjustment True/Manual: ""
+*ParamCustomBRDensityAdjustment Density/Density Adjustment: 1 int -6 6
+
+*%==== 5.20 Font Related Keywords ==============================
+*DefaultFont: Courier
+*Font AvantGarde-Book: Standard "(001.006S)" Standard ROM
+*Font AvantGarde-BookOblique: Standard "(001.006S)" Standard ROM
+*Font AvantGarde-Demi: Standard "(001.007S)" Standard ROM
+*Font AvantGarde-DemiOblique: Standard "(001.007S)" Standard ROM
+*Font Bookman-Demi: Standard "(001.004S)" Standard ROM
+*Font Bookman-DemiItalic: Standard "(001.004S)" Standard ROM
+*Font Bookman-Light: Standard "(001.004S)" Standard ROM
+*Font Bookman-LightItalic: Standard "(001.004S)" Standard ROM
+*Font Courier: Standard "(002.004S)" Standard ROM
+*Font Courier-Bold: Standard "(002.004S)" Standard ROM
+*Font Courier-BoldOblique: Standard "(002.004S)" Standard ROM
+*Font Courier-Oblique: Standard "(002.004S)" Standard ROM
+*Font Helvetica: Standard "(001.006S)" Standard ROM
+*Font Helvetica-Bold: Standard "(001.007S)" Standard ROM
+*Font Helvetica-BoldOblique: Standard "(001.007S)" Standard ROM
+*Font Helvetica-Narrow: Standard "(001.006S)" Standard ROM
+*Font Helvetica-Narrow-Bold: Standard "(001.007S)" Standard ROM
+*Font Helvetica-Narrow-BoldOblique: Standard "(001.007S)" Standard ROM
+*Font Helvetica-Narrow-Oblique: Standard "(001.006S)" Standard ROM
+*Font Helvetica-Oblique: Standard "(001.006S)" Standard ROM
+*Font NewCenturySchlbk-Bold: Standard "(001.009S)" Standard ROM
+*Font NewCenturySchlbk-BoldItalic: Standard "(001.007S)" Standard ROM
+*Font NewCenturySchlbk-Italic: Standard "(001.006S)" Standard ROM
+*Font NewCenturySchlbk-Roman: Standard "(001.007S)" Standard ROM
+*Font Palatino-Bold: Standard "(001.005S)" Standard ROM
+*Font Palatino-BoldItalic: Standard "(001.005S)" Standard ROM
+*Font Palatino-Italic: Standard "(001.005S)" Standard ROM
+*Font Palatino-Roman: Standard "(001.005S)" Standard ROM
+*Font Times-Bold: Standard "(001.007S)" Standard ROM
+*Font Times-BoldItalic: Standard "(001.009S)" Standard ROM
+*Font Times-Italic: Standard "(001.007S)" Standard ROM
+*Font Times-Roman: Standard "(001.007S)" Standard ROM
+*Font ZapfChancery-MediumItalic: Standard "(001.007S)" Standard ROM
+*Font ZapfDingbats: Special "(001.004S)" Special ROM
+*Font Symbol: Special "(001.007S)" Special ROM
+*Font Alaska: Standard "(001.005)" Standard ROM
+*Font AlaskaExtrabold: Standard "(001.005)" Standard ROM
+*Font AntiqueOakland: Standard "(001.005)" Standard ROM
+*Font AntiqueOakland-Bold: Standard "(001.005)" Standard ROM
+*Font AntiqueOakland-Oblique: Standard "(001.005)" Standard ROM
+*Font ClevelandCondensed: Standard "(001.005)" Standard ROM
+*Font Connecticut: Standard "(001.005)" Standard ROM
+*Font Guatemala-Antique: Standard "(001.005)" Standard ROM
+*Font Guatemala-Bold: Standard "(001.005)" Standard ROM
+*Font Guatemala-Italic: Standard "(001.005)" Standard ROM
+*Font Guatemala-BoldItalic: Standard "(001.005)" Standard ROM
+*Font LetterGothic: Standard "(001.005)" Standard ROM
+*Font LetterGothic-Bold: Standard "(001.005)" Standard ROM
+*Font LetterGothic-Oblique: Standard "(001.005)" Standard ROM
+*Font Maryland: Standard "(001.005)" Standard ROM
+*Font Oklahoma: Standard "(001.005)" Standard ROM
+*Font Oklahoma-Bold: Standard "(001.005)" Standard ROM
+*Font Oklahoma-Oblique: Standard "(001.005)" Standard ROM
+*Font Oklahoma-BoldOblique: Standard "(001.005)" Standard ROM
+*Font Utah: Standard "(001.005)" Standard ROM
+*Font Utah-Bold: Standard "(001.005)" Standard ROM
+*Font Utah-Oblique: Standard "(001.005)" Standard ROM
+*Font Utah-BoldOblique: Standard "(001.005)" Standard ROM
+*Font UtahCondensed: Standard "(001.005)" Standard ROM
+*Font UtahCondensed-Bold: Standard "(001.005)" Standard ROM
+*Font UtahCondensed-Oblique: Standard "(001.004)" Standard ROM
+*Font UtahCondensed-BoldOblique: Standard "(001.005)" Standard ROM
+*Font BermudaScript: Standard "(001.005)" Standard ROM
+*Font Germany: Standard "(001.005)" Standard ROM
+*Font SanDiego: Standard "(001.005)" Standard ROM
+*Font US-Roman: Standard "(001.005)" Standard ROM
+*?FontQuery: "
+save
+count 1 gt
+  {exch dup dup
+   =string cvs (/) print print (:) print
+   FontDirectory exch known
+     {pop(Yes)}
+     {(fonts/)AppendName exch pop mark exch
+      {}=string filenameforall counttomark
+      0 gt
+        {cleartomark(Yes)}
+        {cleartomark(No)}ifelse
+     }ifelse
+   =
+  }if
+  (*) = flush
+restore
+"
+*End
+*?FontList: "
+save
+  FontDirectory{pop ==}forall
+  (fonts/*)
+  {dup length 6 sub 6 exch getinterval cvn ==
+  }=string filenameforall
+  (*) = flush
+restore
+"
+*End
+*% Chinese_CN localization
+*zh_CN.Translation ModelName/Brother HL-1110 series: ""
+*zh_CN.Translation General/General: ""
+*zh_CN.cupsMarkerName Black/墨粉盒: ""
+*zh_CN.cupsMarkerName OPC/感光带: ""
+*zh_CN.cupsMarkerName WasteToner/废粉盒: ""
+*zh_CN.cupsMarkerName Fuser/定影单元: ""
+*zh_CN.cupsMarkerName 60KKit/60K套件: ""
+*zh_CN.cupsMarkerName 120KKit/120K套件: ""
+*zh_CN.cupsMarkerName 240KKit/240K套件: ""
+*zh_CN.cupsMarkerName PFKit1/进纸辊套件1: ""
+*zh_CN.cupsMarkerName PFKit2/进纸辊套件2: ""
+*zh_CN.cupsMarkerName PFKit3/进纸辊套件3: ""
+*zh_CN.cupsMarkerName PFKit4/进纸辊套件4: ""
+*zh_CN.cupsMarkerName Drum/硒鼓单元: ""
+*zh_CN.cupsIPPReason com.brother.marker-supply-empty-warning/更换墨粉: ""
+*zh_CN.cupsIPPReason com.brother.generic-warning/　: ""
+*zh_CN.Translation PageSize/Media Size: ""
+*zh_CN.PageSize A4/A4: ""
+*zh_CN.PageSize Letter/Letter: ""
+*zh_CN.PageSize Legal/Legal: ""
+*zh_CN.PageSize FanFoldGermanLegal/Folio: ""
+*zh_CN.PageSize Custom/Custom: ""
+*zh_CN.Translation PageRegion/PageRegion: ""
+*zh_CN.PageRegion A4/A4: ""
+*zh_CN.PageRegion Letter/Letter: ""
+*zh_CN.PageRegion Legal/Legal: ""
+*zh_CN.PageRegion FanFoldGermanLegal/Folio: ""
+*zh_CN.PageRegion Custom/Custom: ""
+*zh_CN.Translation BRMediaType/介质类型: ""
+*zh_CN.BRMediaType Plain/普通纸: ""
+*zh_CN.BRMediaType Recycled/再生纸: ""
+*zh_CN.Translation BRResolution/打印质量: ""
+*zh_CN.BRResolution 300dpi/草稿: ""
+*zh_CN.BRResolution 300x600dpi/标准: ""
+*zh_CN.BRResolution 600dpi/精细: ""
+*zh_CN.Translation BRHalfTonePattern/图形质量: ""
+*zh_CN.BRHalfTonePattern Brother/图形: ""
+*zh_CN.BRHalfTonePattern Brother4/文本: ""
+*zh_CN.Translation TonerSaveMode/节墨模式: ""
+*zh_CN.TonerSaveMode OFF/关: ""
+*zh_CN.TonerSaveMode ON/开: ""
+*zh_CN.Translation BRImproveOutput/改进设置: ""
+*zh_CN.BRImproveOutput OFF/关: ""
+*zh_CN.BRImproveOutput BRLessPaperCurl/减少纸张卷曲: ""
+*zh_CN.BRImproveOutput BRFixIntensity/改进墨粉定影: ""
+*zh_CN.Translation BRSkipBlank/跳过空白页: ""
+*zh_CN.BRSkipBlank OFF/关: ""
+*zh_CN.BRSkipBlank ON/开: ""
+*zh_CN.Translation BRDensityAdjustment/浓度调整: ""
+*zh_CN.BRDensityAdjustment Default/打印机默认值: ""
+*zh_CN.BRDensityAdjustment Custom/Manual: ""
+*zh_CN.CustomBRDensityAdjustment True/手动: ""
+*zh_CN.ParamCustomBRDensityAdjustment Density/浓度调整: ""
+*zh_CN.BRDensityAdjustment Custom/Manual: ""
+*zh_CN.APPrinterPreset TonerSavePrint/节墨打印: ""
+*% Chinese_TW localization
+*zh_TW.Translation ModelName/Brother HL-1110 series: ""
+*zh_TW.Translation General/General: ""
+*zh_TW.cupsMarkerName Black/碳粉匣: ""
+*zh_TW.cupsMarkerName OPC/感光鼓帶: ""
+*zh_TW.cupsMarkerName WasteToner/廢粉盒: ""
+*zh_TW.cupsMarkerName Fuser/高溫定影器: ""
+*zh_TW.cupsMarkerName 60KKit/60K套件: ""
+*zh_TW.cupsMarkerName 120KKit/120K套件: ""
+*zh_TW.cupsMarkerName 240KKit/240K套件: ""
+*zh_TW.cupsMarkerName PFKit1/進紙輥套件1: ""
+*zh_TW.cupsMarkerName PFKit2/進紙輥套件2: ""
+*zh_TW.cupsMarkerName PFKit3/進紙輥套件3: ""
+*zh_TW.cupsMarkerName PFKit4/進紙輥套件4: ""
+*zh_TW.cupsMarkerName Drum/感光鼓單元: ""
+*zh_TW.cupsIPPReason com.brother.marker-supply-empty-warning/請更換碳粉匣: ""
+*zh_TW.cupsIPPReason com.brother.generic-warning/　: ""
+*zh_TW.Translation PageSize/Media Size: ""
+*zh_TW.PageSize A4/A4: ""
+*zh_TW.PageSize Letter/Letter: ""
+*zh_TW.PageSize Legal/Legal: ""
+*zh_TW.PageSize FanFoldGermanLegal/Folio: ""
+*zh_TW.PageSize Custom/Custom: ""
+*zh_TW.Translation PageRegion/PageRegion: ""
+*zh_TW.PageRegion A4/A4: ""
+*zh_TW.PageRegion Letter/Letter: ""
+*zh_TW.PageRegion Legal/Legal: ""
+*zh_TW.PageRegion FanFoldGermanLegal/Folio: ""
+*zh_TW.PageRegion Custom/Custom: ""
+*zh_TW.Translation BRMediaType/媒體類型: ""
+*zh_TW.BRMediaType Plain/普通紙: ""
+*zh_TW.BRMediaType Recycled/再造紙: ""
+*zh_TW.Translation BRResolution/列印品質: ""
+*zh_TW.BRResolution 300dpi/草稿: ""
+*zh_TW.BRResolution 300x600dpi/標準: ""
+*zh_TW.BRResolution 600dpi/精細: ""
+*zh_TW.Translation BRHalfTonePattern/圖形品質: ""
+*zh_TW.BRHalfTonePattern Brother/圖形: ""
+*zh_TW.BRHalfTonePattern Brother4/文字: ""
+*zh_TW.Translation TonerSaveMode/省碳粉模式: ""
+*zh_TW.TonerSaveMode OFF/關: ""
+*zh_TW.TonerSaveMode ON/開: ""
+*zh_TW.Translation BRImproveOutput/改進設定: ""
+*zh_TW.BRImproveOutput OFF/關: ""
+*zh_TW.BRImproveOutput BRLessPaperCurl/減少紙張捲曲度: ""
+*zh_TW.BRImproveOutput BRFixIntensity/加強碳粉附著度: ""
+*zh_TW.Translation BRSkipBlank/跳過空白頁: ""
+*zh_TW.BRSkipBlank OFF/關: ""
+*zh_TW.BRSkipBlank ON/開: ""
+*zh_TW.Translation BRDensityAdjustment/密度調整: ""
+*zh_TW.BRDensityAdjustment Default/印表機預設值: ""
+*zh_TW.CustomBRDensityAdjustment True/手動: ""
+*zh_TW.BRDensityAdjustment Custom/Manual: ""
+*zh_TW.ParamCustomBRDensityAdjustment Density/密度調整: ""
+*zh_TW.BRDensityAdjustment Custom/Manual: ""
+*zh_TW.APPrinterPreset TonerSavePrint/省碳粉列印: ""
+*% Danish localization
+*da.Translation ModelName/Brother HL-1110 series: ""
+*da.Translation General/General: ""
+*da.cupsMarkerName Black/Tonerpatron: ""
+*da.cupsMarkerName OPC/OPC-bælte: ""
+*da.cupsMarkerName WasteToner/Spildtoner-pakke: ""
+*da.cupsMarkerName Fuser/Fikseringsenhed: ""
+*da.cupsMarkerName 60KKit/60K-sæt: ""
+*da.cupsMarkerName 120KKit/120K-sæt: ""
+*da.cupsMarkerName 240KKit/240K-sæt: ""
+*da.cupsMarkerName PFKit1/PF Kit1: ""
+*da.cupsMarkerName PFKit2/PF Kit2: ""
+*da.cupsMarkerName PFKit3/PF Kit3: ""
+*da.cupsMarkerName PFKit4/PF Kit4: ""
+*da.cupsMarkerName Drum/Tromleenhed: ""
+*da.cupsIPPReason com.brother.marker-supply-empty-warning/Udskift toner: ""
+*da.cupsIPPReason com.brother.generic-warning/　: ""
+*da.Translation PageSize/Media Size: ""
+*da.PageSize A4/A4: ""
+*da.PageSize Letter/Letter: ""
+*da.PageSize Legal/Legal: ""
+*da.PageSize FanFoldGermanLegal/Folio: ""
+*da.PageSize Custom/Custom: ""
+*da.Translation PageRegion/PageRegion: ""
+*da.PageRegion A4/A4: ""
+*da.PageRegion Letter/Letter: ""
+*da.PageRegion Legal/Legal: ""
+*da.PageRegion FanFoldGermanLegal/Folio: ""
+*da.PageRegion Custom/Custom: ""
+*da.Translation BRMediaType/Medietype: ""
+*da.BRMediaType Plain/Almindeligt papir: ""
+*da.BRMediaType Recycled/Genbrugspapir: ""
+*da.Translation BRResolution/Udskriftskvalitet: ""
+*da.BRResolution 300dpi/Kladde: ""
+*da.BRResolution 300x600dpi/Normal : ""
+*da.BRResolution 600dpi/Fin: ""
+*da.Translation BRHalfTonePattern/Grafikkvalitet: ""
+*da.BRHalfTonePattern Brother/Grafik: ""
+*da.BRHalfTonePattern Brother4/Tekst: ""
+*da.Translation TonerSaveMode/Tonerbesparelse: ""
+*da.TonerSaveMode OFF/Fra: ""
+*da.TonerSaveMode ON/Til: ""
+*da.Translation BRImproveOutput/Indstillinger til forbedring: ""
+*da.BRImproveOutput OFF/Fra: ""
+*da.BRImproveOutput BRLessPaperCurl/Reducer papirkrølning: ""
+*da.BRImproveOutput BRFixIntensity/Øg tonerfiksering: ""
+*da.Translation BRSkipBlank/Spring tom side over: ""
+*da.BRSkipBlank OFF/Fra: ""
+*da.BRSkipBlank ON/Til: ""
+*da.Translation BRDensityAdjustment/Lysstyrkejustering: ""
+*da.BRDensityAdjustment Default/Printerstandard: ""
+*da.BRDensityAdjustment Custom/Manual: ""
+*da.CustomBRDensityAdjustment True/Manuel: ""
+*da.ParamCustomBRDensityAdjustment Density/Lysstyrkejustering: ""
+*da.BRDensityAdjustment Custom/Manual: ""
+*da.APPrinterPreset TonerSavePrint/Tonerbesparende udskrivning: ""
+*% Dutch localization
+*nl.Translation ModelName/Brother HL-1110 series: ""
+*nl.Translation General/General: ""
+*nl.cupsMarkerName Black/Tonercartridges: ""
+*nl.cupsMarkerName OPC/OPC-riem: ""
+*nl.cupsMarkerName WasteToner/Opvangbakje voor tonerafval: ""
+*nl.cupsMarkerName Fuser/Fuser unit: ""
+*nl.cupsMarkerName 60KKit/60K-kit: ""
+*nl.cupsMarkerName 120KKit/120K-kit: ""
+*nl.cupsMarkerName 240KKit/240K-kit: ""
+*nl.cupsMarkerName PFKit1/PF-kit1: ""
+*nl.cupsMarkerName PFKit2/PF-kit2: ""
+*nl.cupsMarkerName PFKit3/PF-kit3: ""
+*nl.cupsMarkerName PFKit4/PF-kit4: ""
+*nl.cupsMarkerName Drum/Drumkit: ""
+*nl.cupsIPPReason com.brother.marker-supply-empty-warning/Vervang toner: ""
+*nl.cupsIPPReason com.brother.generic-warning/　: ""
+*nl.Translation PageSize/Media Size: ""
+*nl.PageSize A4/A4: ""
+*nl.PageSize Letter/Letter: ""
+*nl.PageSize Legal/Legal: ""
+*nl.PageSize FanFoldGermanLegal/Folio: ""
+*nl.PageSize Custom/Custom: ""
+*nl.Translation PageRegion/PageRegion: ""
+*nl.PageRegion A4/A4: ""
+*nl.PageRegion Letter/Letter: ""
+*nl.PageRegion Legal/Legal: ""
+*nl.PageRegion FanFoldGermanLegal/Folio: ""
+*nl.PageRegion Custom/Custom: ""
+*nl.Translation BRMediaType/Mediatype: ""
+*nl.BRMediaType Plain/Normaal papier: ""
+*nl.BRMediaType Recycled/Kringlooppapier: ""
+*nl.Translation BRResolution/Afdrukkwaliteit: ""
+*nl.BRResolution 300dpi/Concept: ""
+*nl.BRResolution 300x600dpi/Normaal: ""
+*nl.BRResolution 600dpi/Fijn: ""
+*nl.Translation BRHalfTonePattern/Grafische kwaliteit: ""
+*nl.BRHalfTonePattern Brother/Grafisch: ""
+*nl.BRHalfTonePattern Brother4/Tekst: ""
+*nl.Translation TonerSaveMode/Toner-bespaarstand: ""
+*nl.TonerSaveMode OFF/Uit: ""
+*nl.TonerSaveMode ON/Aan: ""
+*nl.Translation BRImproveOutput/Verbeteringsinstellingen: ""
+*nl.BRImproveOutput OFF/Uit: ""
+*nl.BRImproveOutput BRLessPaperCurl/Omkrullen van papier voorkomen: ""
+*nl.BRImproveOutput BRFixIntensity/Tonerhechting verbeteren: ""
+*nl.Translation BRSkipBlank/Lege pagina overslaan: ""
+*nl.BRSkipBlank OFF/Uit: ""
+*nl.BRSkipBlank ON/Aan: ""
+*nl.Translation BRDensityAdjustment/Dichtheid afstelling: ""
+*nl.BRDensityAdjustment Default/Standaardwaarde: ""
+*nl.BRDensityAdjustment Custom/Manual: ""
+*nl.CustomBRDensityAdjustment True/Handmatig: ""
+*nl.ParamCustomBRDensityAdjustment Density/Dichtheid afstelling: ""
+*nl.BRDensityAdjustment Custom/Manual: ""
+*nl.APPrinterPreset TonerSavePrint/Toner besparen: ""
+*% Finnish localization
+*fi.Translation ModelName/Brother HL-1110 series: ""
+*fi.Translation General/General: ""
+*fi.cupsMarkerName Black/Värikasetti: ""
+*fi.cupsMarkerName OPC/OPC-hihna: ""
+*fi.cupsMarkerName WasteToner/Hukkaväripakkaus: ""
+*fi.cupsMarkerName Fuser/Kiinnitysyksikkö: ""
+*fi.cupsMarkerName 60KKit/60K Kit: ""
+*fi.cupsMarkerName 120KKit/120K Kit: ""
+*fi.cupsMarkerName 240KKit/240K Kit: ""
+*fi.cupsMarkerName PFKit1/PF Kit1: ""
+*fi.cupsMarkerName PFKit2/PF Kit2: ""
+*fi.cupsMarkerName PFKit3/PF Kit3: ""
+*fi.cupsMarkerName PFKit4/PF Kit4: ""
+*fi.cupsMarkerName Drum/Rumpuyksikkö: ""
+*fi.cupsIPPReason com.brother.marker-supply-empty-warning/Vaihda väri: ""
+*fi.cupsIPPReason com.brother.generic-warning/　: ""
+*fi.Translation PageSize/Media Size: ""
+*fi.PageSize A4/A4: ""
+*fi.PageSize Letter/Letter: ""
+*fi.PageSize Legal/Legal: ""
+*fi.PageSize FanFoldGermanLegal/Folio: ""
+*fi.PageSize Custom/Custom: ""
+*fi.Translation PageRegion/PageRegion: ""
+*fi.PageRegion A4/A4: ""
+*fi.PageRegion Letter/Letter: ""
+*fi.PageRegion Legal/Legal: ""
+*fi.PageRegion FanFoldGermanLegal/Folio: ""
+*fi.PageRegion Custom/Custom: ""
+*fi.Translation BRMediaType/Tulostusmateriaali: ""
+*fi.BRMediaType Plain/Tavallinen paperi: ""
+*fi.BRMediaType Recycled/Uusiopaperi: ""
+*fi.Translation BRResolution/Tulostuslaatu: ""
+*fi.BRResolution 300dpi/Luonnos: ""
+*fi.BRResolution 300x600dpi/Normaali: ""
+*fi.BRResolution 600dpi/Hieno: ""
+*fi.Translation BRHalfTonePattern/Grafiikkalaatu: ""
+*fi.BRHalfTonePattern Brother/Grafiikka: ""
+*fi.BRHalfTonePattern Brother4/Teksti: ""
+*fi.Translation TonerSaveMode/Värinsäästö: ""
+*fi.TonerSaveMode OFF/Ei: ""
+*fi.TonerSaveMode ON/Kyllä: ""
+*fi.Translation BRImproveOutput/Parannusasetukset: ""
+*fi.BRImproveOutput OFF/Ei: ""
+*fi.BRImproveOutput BRLessPaperCurl/Vähennä paperin käyristymistä: ""
+*fi.BRImproveOutput BRFixIntensity/Paranna värin kiinnitystä: ""
+*fi.Translation BRSkipBlank/Ohita tyhjä sivu: ""
+*fi.BRSkipBlank OFF/Ei: ""
+*fi.BRSkipBlank ON/Kyllä: ""
+*fi.Translation BRDensityAdjustment/Tummuussäätö: ""
+*fi.BRDensityAdjustment Default/Kirjoittimen oletus: ""
+*fi.BRDensityAdjustment Custom/Manual: ""
+*fi.CustomBRDensityAdjustment True/Määritä: ""
+*fi.ParamCustomBRDensityAdjustment Density/Tummuussäätö: ""
+*fi.BRDensityAdjustment Custom/Manual: ""
+*fi.APPrinterPreset TonerSavePrint/Väriä säästävä tulostus: ""
+*% French localization
+*fr.Translation ModelName/Brother HL-1110 series: ""
+*fr.Translation General/General: ""
+*fr.cupsMarkerName Black/Cartouche de toner: ""
+*fr.cupsMarkerName OPC/Courroie OPC: ""
+*fr.cupsMarkerName WasteToner/Réceptacle de toner usagé: ""
+*fr.cupsMarkerName Fuser/Unité de fusion: ""
+*fr.cupsMarkerName 60KKit/Kit 60K: ""
+*fr.cupsMarkerName 120KKit/Kit 120K: ""
+*fr.cupsMarkerName 240KKit/Kit 240K: ""
+*fr.cupsMarkerName PFKit1/Kit1 PF: ""
+*fr.cupsMarkerName PFKit2/Kit2 PF: ""
+*fr.cupsMarkerName PFKit3/Kit3 PF: ""
+*fr.cupsMarkerName PFKit4/Kit4 PF: ""
+*fr.cupsMarkerName Drum/Tambour: ""
+*fr.cupsIPPReason com.brother.marker-supply-empty-warning/Remplacer toner: ""
+*fr.cupsIPPReason com.brother.generic-warning/　: ""
+*fr.Translation PageSize/Media Size: ""
+*fr.PageSize A4/A4: ""
+*fr.PageSize Letter/Letter: ""
+*fr.PageSize Legal/Legal: ""
+*fr.PageSize FanFoldGermanLegal/Folio: ""
+*fr.PageSize Custom/Custom: ""
+*fr.Translation PageRegion/PageRegion: ""
+*fr.PageRegion A4/A4: ""
+*fr.PageRegion Letter/Letter: ""
+*fr.PageRegion Legal/Legal: ""
+*fr.PageRegion FanFoldGermanLegal/Folio: ""
+*fr.PageRegion Custom/Custom: ""
+*fr.Translation BRMediaType/Type de support: ""
+*fr.BRMediaType Plain/Papier ordinaire: ""
+*fr.BRMediaType Recycled/Papier recyclé: ""
+*fr.Translation BRResolution/Qualité d’impression: ""
+*fr.BRResolution 300dpi/Brouillon: ""
+*fr.BRResolution 300x600dpi/Normal: ""
+*fr.BRResolution 600dpi/Fin: ""
+*fr.Translation BRHalfTonePattern/Qualité Graphique: ""
+*fr.BRHalfTonePattern Brother/Graphiques: ""
+*fr.BRHalfTonePattern Brother4/Texte: ""
+*fr.Translation TonerSaveMode/Mode économie: ""
+*fr.TonerSaveMode OFF/Désactivé: ""
+*fr.TonerSaveMode ON/Activé: ""
+*fr.Translation BRImproveOutput/Paramètres d'amélioration: ""
+*fr.BRImproveOutput OFF/Désactivé: ""
+*fr.BRImproveOutput BRLessPaperCurl/Réduire l’ondulation du papier: ""
+*fr.BRImproveOutput BRFixIntensity/Améliorer la tenue du toner: ""
+*fr.Translation BRSkipBlank/Ignorer les pages vierges: ""
+*fr.BRSkipBlank OFF/Désactivé: ""
+*fr.BRSkipBlank ON/Activé: ""
+*fr.Translation BRDensityAdjustment/Réglage densité: ""
+*fr.BRDensityAdjustment Default/Défaut imprimante: ""
+*fr.BRDensityAdjustment Custom/Manual: ""
+*fr.CustomBRDensityAdjustment True/Manuelle: ""
+*fr.ParamCustomBRDensityAdjustment Density/Réglage densité: ""
+*fr.BRDensityAdjustment Custom/Manual: ""
+*fr.APPrinterPreset TonerSavePrint/Impression avec économie de toner: ""
+*% German localization
+*de.Translation ModelName/Brother HL-1110 series: ""
+*de.Translation General/General: ""
+*de.cupsMarkerName Black/Tonerkassette: ""
+*de.cupsMarkerName OPC/OPC-Bandkassette: ""
+*de.cupsMarkerName WasteToner/Toner-Abfallbehälter: ""
+*de.cupsMarkerName Fuser/Fixiereinheit: ""
+*de.cupsMarkerName 60KKit/60K-Kit: ""
+*de.cupsMarkerName 120KKit/120K-Kit: ""
+*de.cupsMarkerName 240KKit/240K-Kit: ""
+*de.cupsMarkerName PFKit1/PF-Kit1: ""
+*de.cupsMarkerName PFKit2/PF-Kit2: ""
+*de.cupsMarkerName PFKit3/PF-Kit3: ""
+*de.cupsMarkerName PFKit4/PF-Kit4: ""
+*de.cupsMarkerName Drum/Trommel: ""
+*de.cupsIPPReason com.brother.marker-supply-empty-warning/Toner ersetzen: ""
+*de.cupsIPPReason com.brother.generic-warning/　: ""
+*de.Translation PageSize/Media Size: ""
+*de.PageSize A4/A4: ""
+*de.PageSize Letter/Letter: ""
+*de.PageSize Legal/Legal: ""
+*de.PageSize FanFoldGermanLegal/Folio: ""
+*de.PageSize Custom/Custom: ""
+*de.Translation PageRegion/PageRegion: ""
+*de.PageRegion A4/A4: ""
+*de.PageRegion Letter/Letter: ""
+*de.PageRegion Legal/Legal: ""
+*de.PageRegion FanFoldGermanLegal/Folio: ""
+*de.PageRegion Custom/Custom: ""
+*de.Translation BRMediaType/Druckmedium: ""
+*de.BRMediaType Plain/Normalpapier: ""
+*de.BRMediaType Recycled/Recyclingpapier: ""
+*de.Translation BRResolution/Druckqualität: ""
+*de.BRResolution 300dpi/Entwurf: ""
+*de.BRResolution 300x600dpi/Normal: ""
+*de.BRResolution 600dpi/Fein: ""
+*de.Translation BRHalfTonePattern/Grafikqualität: ""
+*de.BRHalfTonePattern Brother/Grafiken: ""
+*de.BRHalfTonePattern Brother4/Text: ""
+*de.Translation TonerSaveMode/Tonersparmodus: ""
+*de.TonerSaveMode OFF/Aus: ""
+*de.TonerSaveMode ON/Ein: ""
+*de.Translation BRImproveOutput/Optimierungseinstellungen: ""
+*de.BRImproveOutput OFF/Aus: ""
+*de.BRImproveOutput BRLessPaperCurl/Gewelltes Papier vermeiden: ""
+*de.BRImproveOutput BRFixIntensity/Tonerfixierung optimieren: ""
+*de.Translation BRSkipBlank/Leere Seite überspringen: ""
+*de.BRSkipBlank OFF/Aus: ""
+*de.BRSkipBlank ON/Ein: ""
+*de.Translation BRDensityAdjustment/Einstellung Druckdichte: ""
+*de.BRDensityAdjustment Default/Standard (Drucker): ""
+*de.BRDensityAdjustment Custom/Manual: ""
+*de.CustomBRDensityAdjustment True/Manuell: ""
+*de.ParamCustomBRDensityAdjustment Density/Einstellung Druckdichte: ""
+*de.BRDensityAdjustment Custom/Manual: ""
+*de.APPrinterPreset TonerSavePrint/Drucken - Toner sparen: ""
+*% Italian localization
+*it.Translation ModelName/Brother HL-1110 series: ""
+*it.Translation General/General: ""
+*it.cupsMarkerName Black/Cartuccia toner: ""
+*it.cupsMarkerName OPC/Cinghia OPC: ""
+*it.cupsMarkerName WasteToner/Confezione toner di scarto: ""
+*it.cupsMarkerName Fuser/Gruppo fusore: ""
+*it.cupsMarkerName 60KKit/Kit 60K: ""
+*it.cupsMarkerName 120KKit/Kit 120K: ""
+*it.cupsMarkerName 240KKit/Kit 240K: ""
+*it.cupsMarkerName PFKit1/Kit1 PF: ""
+*it.cupsMarkerName PFKit2/Kit2 PF: ""
+*it.cupsMarkerName PFKit3/Kit3 PF: ""
+*it.cupsMarkerName PFKit4/Kit4 PF: ""
+*it.cupsMarkerName Drum/Gruppo tamburo: ""
+*it.cupsIPPReason com.brother.marker-supply-empty-warning/Sostituire toner: ""
+*it.cupsIPPReason com.brother.generic-warning/　: ""
+*it.Translation PageSize/Media Size: ""
+*it.PageSize A4/A4: ""
+*it.PageSize Letter/Letter: ""
+*it.PageSize Legal/Legal: ""
+*it.PageSize FanFoldGermanLegal/Folio: ""
+*it.PageSize Custom/Custom: ""
+*it.Translation PageRegion/PageRegion: ""
+*it.PageRegion A4/A4: ""
+*it.PageRegion Letter/Letter: ""
+*it.PageRegion Legal/Legal: ""
+*it.PageRegion FanFoldGermanLegal/Folio: ""
+*it.PageRegion Custom/Custom: ""
+*it.Translation BRMediaType/Tipo di supporto: ""
+*it.BRMediaType Plain/Carta normale: ""
+*it.BRMediaType Recycled/Carta riciclata: ""
+*it.Translation BRResolution/Qualità di stampa: ""
+*it.BRResolution 300dpi/Bozza: ""
+*it.BRResolution 300x600dpi/Normale: ""
+*it.BRResolution 600dpi/Fine: ""
+*it.Translation BRHalfTonePattern/Qualità grafica: ""
+*it.BRHalfTonePattern Brother/Grafica: ""
+*it.BRHalfTonePattern Brother4/Testo: ""
+*it.Translation TonerSaveMode/Modalità risparmio toner: ""
+*it.TonerSaveMode OFF/Disattivata: ""
+*it.TonerSaveMode ON/Attivata: ""
+*it.Translation BRImproveOutput/Miglioramento delle impostazioni: ""
+*it.BRImproveOutput OFF/Disattivata: ""
+*it.BRImproveOutput BRLessPaperCurl/Riduci arricciamento carta: ""
+*it.BRImproveOutput BRFixIntensity/Migliora fissaggio toner: ""
+*it.Translation BRSkipBlank/Ignora pagina vuota: ""
+*it.BRSkipBlank OFF/Disattivata: ""
+*it.BRSkipBlank ON/Attivata: ""
+*it.Translation BRDensityAdjustment/Regolazione densità: ""
+*it.BRDensityAdjustment Default/Predef. stampante: ""
+*it.BRDensityAdjustment Custom/Manual: ""
+*it.CustomBRDensityAdjustment True/Manuale: ""
+*it.ParamCustomBRDensityAdjustment Density/Regolazione densità: ""
+*it.BRDensityAdjustment Custom/Manual: ""
+*it.APPrinterPreset TonerSavePrint/Stampa risparmio toner: ""
+*% Japanese localization
+*ja.Translation ModelName/Brother HL-1110 series: ""
+*ja.Translation General/General: ""
+*ja.cupsMarkerName Black/トナーカートリッジ: ""
+*ja.cupsMarkerName OPC/OPC ベルトユニット: ""
+*ja.cupsMarkerName WasteToner/廃トナーパック: ""
+*ja.cupsMarkerName Fuser/定着器: ""
+*ja.cupsMarkerName 60KKit/60K キット: ""
+*ja.cupsMarkerName 120KKit/120K キット: ""
+*ja.cupsMarkerName 240KKit/240K キット: ""
+*ja.cupsMarkerName PFKit1/PFキット1: ""
+*ja.cupsMarkerName PFKit2/PFキット2: ""
+*ja.cupsMarkerName PFKit3/PFキット3: ""
+*ja.cupsMarkerName PFKit4/PFキット4: ""
+*ja.cupsMarkerName Drum/ドラムユニット: ""
+*ja.cupsIPPReason com.brother.marker-supply-empty-warning/トナー交換: ""
+*ja.cupsIPPReason com.brother.generic-warning/　: ""
+*ja.Translation PageSize/Media Size: ""
+*ja.PageSize A4/A4: ""
+*ja.PageSize Letter/レター: ""
+*ja.PageSize Legal/リーガル: ""
+*ja.PageSize FanFoldGermanLegal/フォリオ: ""
+*ja.PageSize Custom/Custom: ""
+*ja.Translation PageRegion/PageRegion: ""
+*ja.PageRegion A4/A4: ""
+*ja.PageRegion Letter/レター: ""
+*ja.PageRegion Legal/リーガル: ""
+*ja.PageRegion FanFoldGermanLegal/フォリオ: ""
+*ja.PageRegion Custom/Custom: ""
+*ja.Translation BRMediaType/用紙種類: ""
+*ja.BRMediaType Plain/普通紙（厚め）: ""
+*ja.BRMediaType Recycled/再生紙: ""
+*ja.Translation BRResolution/印刷品質: ""
+*ja.BRResolution 300dpi/ドラフト: ""
+*ja.BRResolution 300x600dpi/普通: ""
+*ja.BRResolution 600dpi/きれい: ""
+*ja.Translation BRHalfTonePattern/ディザリング: ""
+*ja.BRHalfTonePattern Brother/グラフィックス: ""
+*ja.BRHalfTonePattern Brother4/テキスト: ""
+*ja.Translation TonerSaveMode/トナー節約モード: ""
+*ja.TonerSaveMode OFF/オフ: ""
+*ja.TonerSaveMode ON/オン: ""
+*ja.Translation BRImproveOutput/改善設定: ""
+*ja.BRImproveOutput OFF/オフ: ""
+*ja.BRImproveOutput BRLessPaperCurl/用紙のカールを軽減する: ""
+*ja.BRImproveOutput BRFixIntensity/トナーの定着を改善する: ""
+*ja.Translation BRSkipBlank/白紙ページの節約: ""
+*ja.BRSkipBlank OFF/オフ: ""
+*ja.BRSkipBlank ON/オン: ""
+*ja.Translation BRDensityAdjustment/濃度調整: ""
+*ja.BRDensityAdjustment Default/プリンターの設定のまま: ""
+*ja.BRDensityAdjustment Custom/Manual: ""
+*ja.CustomBRDensityAdjustment True/手動設定: ""
+*ja.ParamCustomBRDensityAdjustment Density/濃度調整: ""
+*ja.BRDensityAdjustment Custom/Manual: ""
+*ja.APPrinterPreset TonerSavePrint/トナーを節約して印刷: ""
+*% Korean localization
+*ko.Translation ModelName/Brother HL-1110 series: ""
+*ko.Translation General/General: ""
+*ko.cupsMarkerName Black/토너 카트리지: ""
+*ko.cupsMarkerName OPC/OPC 벨트: ""
+*ko.cupsMarkerName WasteToner/폐토너통: ""
+*ko.cupsMarkerName Fuser/정착 유니트: ""
+*ko.cupsMarkerName 60KKit/60K 키트: ""
+*ko.cupsMarkerName 120KKit/120K 키트: ""
+*ko.cupsMarkerName 240KKit/240K 키트: ""
+*ko.cupsMarkerName PFKit1/PF 키트1: ""
+*ko.cupsMarkerName PFKit2/PF 키트2: ""
+*ko.cupsMarkerName PFKit3/PF 키트3: ""
+*ko.cupsMarkerName PFKit4/PF 키트4: ""
+*ko.cupsMarkerName Drum/드럼 유니트: ""
+*ko.cupsIPPReason com.brother.marker-supply-empty-warning/토너 교체: ""
+*ko.cupsIPPReason com.brother.generic-warning/　: ""
+*ko.Translation PageSize/Media Size: ""
+*ko.PageSize A4/A4: ""
+*ko.PageSize Letter/Letter: ""
+*ko.PageSize Legal/Legal: ""
+*ko.PageSize FanFoldGermanLegal/Folio: ""
+*ko.PageSize Custom/Custom: ""
+*ko.Translation PageRegion/PageRegion: ""
+*ko.PageRegion A4/A4: ""
+*ko.PageRegion Letter/Letter: ""
+*ko.PageRegion Legal/Legal: ""
+*ko.PageRegion FanFoldGermanLegal/Folio: ""
+*ko.PageRegion Custom/Custom: ""
+*ko.Translation BRMediaType/용지타입: ""
+*ko.BRMediaType Plain/일반 용지: ""
+*ko.BRMediaType Recycled/재생용지: ""
+*ko.Translation BRResolution/인쇄 품질: ""
+*ko.BRResolution 300dpi/초안: ""
+*ko.BRResolution 300x600dpi/표준: ""
+*ko.BRResolution 600dpi/고품질: ""
+*ko.Translation BRHalfTonePattern/그래픽품질: ""
+*ko.BRHalfTonePattern Brother/그래픽: ""
+*ko.BRHalfTonePattern Brother4/문자: ""
+*ko.Translation TonerSaveMode/토너 절약 모드: ""
+*ko.TonerSaveMode OFF/Off: ""
+*ko.TonerSaveMode ON/On: ""
+*ko.Translation BRImproveOutput/품질향상 설정: ""
+*ko.BRImproveOutput OFF/Off: ""
+*ko.BRImproveOutput BRLessPaperCurl/용지 말림 감소: ""
+*ko.BRImproveOutput BRFixIntensity/토너 정착 향상: ""
+*ko.Translation BRSkipBlank/빈 페이지 건너뛰기: ""
+*ko.BRSkipBlank OFF/Off: ""
+*ko.BRSkipBlank ON/On: ""
+*ko.Translation BRDensityAdjustment/농도 조절: ""
+*ko.BRDensityAdjustment Default/프린터 기본값: ""
+*ko.BRDensityAdjustment Custom/Manual: ""
+*ko.CustomBRDensityAdjustment True/수동: ""
+*ko.ParamCustomBRDensityAdjustment Density/농도 조절: ""
+*ko.BRDensityAdjustment Custom/Manual: ""
+*ko.APPrinterPreset TonerSavePrint/토너 절약 인쇄: ""
+*% Norwegian localization
+*no.Translation ModelName/Brother HL-1110 series: ""
+*no.Translation General/General: ""
+*no.cupsMarkerName Black/Tonerkassett: ""
+*no.cupsMarkerName OPC/OPC-belte: ""
+*no.cupsMarkerName WasteToner/Avfallsbeholder: ""
+*no.cupsMarkerName Fuser/Fuserenhet: ""
+*no.cupsMarkerName 60KKit/60K-sett: ""
+*no.cupsMarkerName 120KKit/120K-sett: ""
+*no.cupsMarkerName 240KKit/240K-sett: ""
+*no.cupsMarkerName PFKit1/PF-sett1: ""
+*no.cupsMarkerName PFKit2/PF-sett2: ""
+*no.cupsMarkerName PFKit3/PF-sett3: ""
+*no.cupsMarkerName PFKit4/PF-sett4: ""
+*no.cupsMarkerName Drum/Trommel: ""
+*no.cupsIPPReason com.brother.marker-supply-empty-warning/Bytt toner: ""
+*no.cupsIPPReason com.brother.generic-warning/　: ""
+*no.Translation PageSize/Media Size: ""
+*no.PageSize A4/A4: ""
+*no.PageSize Letter/Letter: ""
+*no.PageSize Legal/Legal: ""
+*no.PageSize FanFoldGermanLegal/Folio: ""
+*no.PageSize Custom/Custom: ""
+*no.Translation PageRegion/PageRegion: ""
+*no.PageRegion A4/A4: ""
+*no.PageRegion Letter/Letter: ""
+*no.PageRegion Legal/Legal: ""
+*no.PageRegion FanFoldGermanLegal/Folio: ""
+*no.PageRegion Custom/Custom: ""
+*no.Translation BRMediaType/Medietype: ""
+*no.BRMediaType Plain/Vanlig papir: ""
+*no.BRMediaType Recycled/Resirkulert papir: ""
+*no.Translation BRResolution/Utskriftskvalitet: ""
+*no.BRResolution 300dpi/Utkast: ""
+*no.BRResolution 300x600dpi/Normal: ""
+*no.BRResolution 600dpi/Fin: ""
+*no.Translation BRHalfTonePattern/Grafikkvalitet: ""
+*no.BRHalfTonePattern Brother/Grafikk: ""
+*no.BRHalfTonePattern Brother4/Tekst: ""
+*no.Translation TonerSaveMode/Tonersparemodus: ""
+*no.TonerSaveMode OFF/Av: ""
+*no.TonerSaveMode ON/På: ""
+*no.Translation BRImproveOutput/Forbedringsinnstillinger: ""
+*no.BRImproveOutput OFF/Av: ""
+*no.BRImproveOutput BRLessPaperCurl/Redusere papirkrølling: ""
+*no.BRImproveOutput BRFixIntensity/Forbedre tonerfiksering: ""
+*no.Translation BRSkipBlank/Hopp over tom side: ""
+*no.BRSkipBlank OFF/Av: ""
+*no.BRSkipBlank ON/På: ""
+*no.Translation BRDensityAdjustment/Tetthetsjustering: ""
+*no.BRDensityAdjustment Default/Skriverstandard: ""
+*no.BRDensityAdjustment Custom/Manual: ""
+*no.CustomBRDensityAdjustment True/Manuell: ""
+*no.ParamCustomBRDensityAdjustment Density/Tetthetsjustering: ""
+*no.BRDensityAdjustment Custom/Manual: ""
+*no.APPrinterPreset TonerSavePrint/Tonerspareutskrift: ""
+*% Portuguese localization
+*pt.Translation ModelName/Brother HL-1110 series: ""
+*pt.Translation General/General: ""
+*pt.cupsMarkerName Black/Cartucho de Toner: ""
+*pt.cupsMarkerName OPC/Correia OPC: ""
+*pt.cupsMarkerName WasteToner/Caixa de toner residual: ""
+*pt.cupsMarkerName Fuser/Unidade Fusora: ""
+*pt.cupsMarkerName 60KKit/Kit 60k: ""
+*pt.cupsMarkerName 120KKit/Kit 120k: ""
+*pt.cupsMarkerName 240KKit/Kit 240k: ""
+*pt.cupsMarkerName PFKit1/Kit AP 1: ""
+*pt.cupsMarkerName PFKit2/Kit AP 2: ""
+*pt.cupsMarkerName PFKit3/Kit AP 3: ""
+*pt.cupsMarkerName PFKit4/Kit AP 4: ""
+*pt.cupsMarkerName Drum/Unidade do Cilindro: ""
+*pt.cupsIPPReason com.brother.marker-supply-empty-warning/Trocar Toner: ""
+*pt.cupsIPPReason com.brother.generic-warning/　: ""
+*pt.Translation PageSize/Media Size: ""
+*pt.PageSize A4/A4: ""
+*pt.PageSize Letter/Carta: ""
+*pt.PageSize Legal/Ofício: ""
+*pt.PageSize FanFoldGermanLegal/Fólio: ""
+*pt.PageSize Custom/Custom: ""
+*pt.Translation PageRegion/PageRegion: ""
+*pt.PageRegion A4/A4: ""
+*pt.PageRegion Letter/Carta: ""
+*pt.PageRegion Legal/Ofício: ""
+*pt.PageRegion FanFoldGermanLegal/Fólio: ""
+*pt.PageRegion Custom/Custom: ""
+*pt.Translation BRMediaType/Tipo de Mídia: ""
+*pt.BRMediaType Plain/Papel Comum: ""
+*pt.BRMediaType Recycled/Papel Reciclado: ""
+*pt.Translation BRResolution/Qualidade de Impressão: ""
+*pt.BRResolution 300dpi/Rascunho: ""
+*pt.BRResolution 300x600dpi/Normal: ""
+*pt.BRResolution 600dpi/Fina: ""
+*pt.Translation BRHalfTonePattern/Qualidade Gráfica: ""
+*pt.BRHalfTonePattern Brother/Gráficos: ""
+*pt.BRHalfTonePattern Brother4/Texto: ""
+*pt.Translation TonerSaveMode/Modo Economia de Toner: ""
+*pt.TonerSaveMode OFF/Desativada: ""
+*pt.TonerSaveMode ON/Ativada: ""
+*pt.Translation BRImproveOutput/Configurações de Melhoria: ""
+*pt.BRImproveOutput OFF/Desativada: ""
+*pt.BRImproveOutput BRLessPaperCurl/Reduzir a ondulação do papel: ""
+*pt.BRImproveOutput BRFixIntensity/Melhorar a fixação do toner: ""
+*pt.Translation BRSkipBlank/Ignorar Página em Branco: ""
+*pt.BRSkipBlank OFF/Desativada: ""
+*pt.BRSkipBlank ON/Ativada: ""
+*pt.Translation BRDensityAdjustment/Ajuste de Densidade: ""
+*pt.BRDensityAdjustment Default/Padrão da Impressora: ""
+*pt.BRDensityAdjustment Custom/Manual: ""
+*pt.CustomBRDensityAdjustment True/Manual: ""
+*pt.ParamCustomBRDensityAdjustment Density/Ajuste de Densidade: ""
+*pt.BRDensityAdjustment Custom/Manual: ""
+*pt.APPrinterPreset TonerSavePrint/Impressão com Economia de Toner: ""
+*% Portuguese_PT localization
+*pt_PT.Translation ModelName/Brother HL-1110 series: ""
+*pt_PT.Translation General/General: ""
+*pt_PT.cupsMarkerName Black/Cartucho do toner: ""
+*pt_PT.cupsMarkerName OPC/Correia OPC: ""
+*pt_PT.cupsMarkerName WasteToner/Caixa de toner residual: ""
+*pt_PT.cupsMarkerName Fuser/Unidade de fusão: ""
+*pt_PT.cupsMarkerName 60KKit/60K Kit: ""
+*pt_PT.cupsMarkerName 120KKit/120K Kit: ""
+*pt_PT.cupsMarkerName 240KKit/240K Kit: ""
+*pt_PT.cupsMarkerName PFKit1/PF Kit1: ""
+*pt_PT.cupsMarkerName PFKit2/PF Kit2: ""
+*pt_PT.cupsMarkerName PFKit3/PF Kit3: ""
+*pt_PT.cupsMarkerName PFKit4/PF Kit4: ""
+*pt_PT.cupsMarkerName Drum/Unidade do tambor: ""
+*pt_PT.cupsIPPReason com.brother.marker-supply-empty-warning/Substituir toner: ""
+*pt_PT.cupsIPPReason com.brother.generic-warning/　: ""
+*pt_PT.Translation PageSize/Media Size: ""
+*pt_PT.PageSize A4/A4: ""
+*pt_PT.PageSize Letter/Letter: ""
+*pt_PT.PageSize Legal/Legal: ""
+*pt_PT.PageSize FanFoldGermanLegal/Folio: ""
+*pt_PT.PageSize Custom/Custom: ""
+*pt_PT.Translation PageRegion/PageRegion: ""
+*pt_PT.PageRegion A4/A4: ""
+*pt_PT.PageRegion Letter/Letter: ""
+*pt_PT.PageRegion Legal/Legal: ""
+*pt_PT.PageRegion FanFoldGermanLegal/Folio: ""
+*pt_PT.PageRegion Custom/Custom: ""
+*pt_PT.Translation BRMediaType/Tipo de suporte: ""
+*pt_PT.BRMediaType Plain/Papel normal: ""
+*pt_PT.BRMediaType Recycled/Papel reciclado: ""
+*pt_PT.Translation BRResolution/Qualidade de impressão: ""
+*pt_PT.BRResolution 300dpi/Rascunho: ""
+*pt_PT.BRResolution 300x600dpi/Normal: ""
+*pt_PT.BRResolution 600dpi/Fina: ""
+*pt_PT.Translation BRHalfTonePattern/Qualidade gráfica: ""
+*pt_PT.BRHalfTonePattern Brother/Gráficos: ""
+*pt_PT.BRHalfTonePattern Brother4/Texto: ""
+*pt_PT.Translation TonerSaveMode/Modo Economizar toner: ""
+*pt_PT.TonerSaveMode OFF/Desactivar: ""
+*pt_PT.TonerSaveMode ON/Activar: ""
+*pt_PT.Translation BRImproveOutput/Definições de melhoramento: ""
+*pt_PT.BRImproveOutput OFF/Desactivar: ""
+*pt_PT.BRImproveOutput BRLessPaperCurl/Evitar enrolamento do papel: ""
+*pt_PT.BRImproveOutput BRFixIntensity/Melhorar fixação do toner: ""
+*pt_PT.Translation BRSkipBlank/Saltar página em branco: ""
+*pt_PT.BRSkipBlank OFF/Desactivar: ""
+*pt_PT.BRSkipBlank ON/Activar: ""
+*pt_PT.Translation BRDensityAdjustment/Ajuste de densidade: ""
+*pt_PT.BRDensityAdjustment Default/Predefinição da impressora: ""
+*pt_PT.BRDensityAdjustment Custom/Manual: ""
+*pt_PT.CustomBRDensityAdjustment True/Manual: ""
+*pt_PT.ParamCustomBRDensityAdjustment Density/Ajuste de densidade: ""
+*pt_PT.BRDensityAdjustment Custom/Manual: ""
+*pt_PT.APPrinterPreset TonerSavePrint/Impressão Economia toner: ""
+*% Spanish localization
+*es.Translation ModelName/Brother HL-1110 series: ""
+*es.Translation General/General: ""
+*es.cupsMarkerName Black/Cartucho de tóner: ""
+*es.cupsMarkerName OPC/Cinturón OPC: ""
+*es.cupsMarkerName WasteToner/Recipiente de tóner consumido: ""
+*es.cupsMarkerName Fuser/Unidad de fusión: ""
+*es.cupsMarkerName 60KKit/60K Kit: ""
+*es.cupsMarkerName 120KKit/120K Kit: ""
+*es.cupsMarkerName 240KKit/240K Kit: ""
+*es.cupsMarkerName PFKit1/PF Kit1: ""
+*es.cupsMarkerName PFKit2/PF Kit2: ""
+*es.cupsMarkerName PFKit3/PF Kit3: ""
+*es.cupsMarkerName PFKit4/PF Kit4: ""
+*es.cupsMarkerName Drum/Unidad de tambor: ""
+*es.cupsIPPReason com.brother.marker-supply-empty-warning/Sustituir tóner: ""
+*es.cupsIPPReason com.brother.generic-warning/　: ""
+*es.Translation PageSize/Media Size: ""
+*es.PageSize A4/A4: ""
+*es.PageSize Letter/Carta: ""
+*es.PageSize Legal/Oficio: ""
+*es.PageSize FanFoldGermanLegal/Circular: ""
+*es.PageSize Custom/Custom: ""
+*es.Translation PageRegion/PageRegion: ""
+*es.PageRegion A4/A4: ""
+*es.PageRegion Letter/Carta: ""
+*es.PageRegion Legal/Oficio: ""
+*es.PageRegion FanFoldGermanLegal/Circular: ""
+*es.PageRegion Custom/Custom: ""
+*es.Translation BRMediaType/Soporte de impresión: ""
+*es.BRMediaType Plain/Papel normal: ""
+*es.BRMediaType Recycled/Papel reciclado: ""
+*es.Translation BRResolution/Calidad de impresión: ""
+*es.BRResolution 300dpi/Borrador: ""
+*es.BRResolution 300x600dpi/Normal: ""
+*es.BRResolution 600dpi/Fina: ""
+*es.Translation BRHalfTonePattern/Calidad de gráficos: ""
+*es.BRHalfTonePattern Brother/Gráficos: ""
+*es.BRHalfTonePattern Brother4/Texto: ""
+*es.Translation TonerSaveMode/Ahorro de tóner: ""
+*es.TonerSaveMode OFF/Desactivado: ""
+*es.TonerSaveMode ON/Activado: ""
+*es.Translation BRImproveOutput/Ajustes de mejora: ""
+*es.BRImproveOutput OFF/Desactivado: ""
+*es.BRImproveOutput BRLessPaperCurl/Reduce la curvatura del papel: ""
+*es.BRImproveOutput BRFixIntensity/Mejora la fijación del tóner: ""
+*es.Translation BRSkipBlank/Saltar página en blanco: ""
+*es.BRSkipBlank OFF/Desactivado: ""
+*es.BRSkipBlank ON/Activado: ""
+*es.Translation BRDensityAdjustment/Ajuste de la densidad: ""
+*es.BRDensityAdjustment Default/Impresora predeterminada: ""
+*es.BRDensityAdjustment Custom/Manual: ""
+*es.CustomBRDensityAdjustment True/Manual: ""
+*es.ParamCustomBRDensityAdjustment Density/Ajuste de la densidad: ""
+*es.BRDensityAdjustment Custom/Manual: ""
+*es.APPrinterPreset TonerSavePrint/Imprimir ahorrando tóner: ""
+*% Swedish localization
+*sv.Translation ModelName/Brother HL-1110 series: ""
+*sv.Translation General/General: ""
+*sv.cupsMarkerName Black/Tonerkassett: ""
+*sv.cupsMarkerName OPC/OPC-bälte: ""
+*sv.cupsMarkerName WasteToner/Spilltonerbehållare: ""
+*sv.cupsMarkerName Fuser/Fixeringsenhet: ""
+*sv.cupsMarkerName 60KKit/60K-kit: ""
+*sv.cupsMarkerName 120KKit/120K-kit: ""
+*sv.cupsMarkerName 240KKit/240K-kit: ""
+*sv.cupsMarkerName PFKit1/PF-kit1: ""
+*sv.cupsMarkerName PFKit2/PF-kit2: ""
+*sv.cupsMarkerName PFKit3/PF-kit3: ""
+*sv.cupsMarkerName PFKit4/PF-kit4: ""
+*sv.cupsMarkerName Drum/Trumenhet: ""
+*sv.cupsIPPReason com.brother.marker-supply-empty-warning/Byt toner: ""
+*sv.cupsIPPReason com.brother.generic-warning/　: ""
+*sv.Translation PageSize/Media Size: ""
+*sv.PageSize A4/A4: ""
+*sv.PageSize Letter/Letter: ""
+*sv.PageSize Legal/Legal: ""
+*sv.PageSize FanFoldGermanLegal/Folie: ""
+*sv.PageSize Custom/Custom: ""
+*sv.Translation PageRegion/PageRegion: ""
+*sv.PageRegion A4/A4: ""
+*sv.PageRegion Letter/Letter: ""
+*sv.PageRegion Legal/Legal: ""
+*sv.PageRegion FanFoldGermanLegal/Folie: ""
+*sv.PageRegion Custom/Custom: ""
+*sv.Translation BRMediaType/Papperstyp: ""
+*sv.BRMediaType Plain/Vanligt papper: ""
+*sv.BRMediaType Recycled/Återvunnet papper: ""
+*sv.Translation BRResolution/Utskriftskvalitet: ""
+*sv.BRResolution 300dpi/Utkast: ""
+*sv.BRResolution 300x600dpi/Normal: ""
+*sv.BRResolution 600dpi/Fin: ""
+*sv.Translation BRHalfTonePattern/Grafikkvalitet: ""
+*sv.BRHalfTonePattern Brother/Grafik: ""
+*sv.BRHalfTonePattern Brother4/Text: ""
+*sv.Translation TonerSaveMode/Tonerbesparing: ""
+*sv.TonerSaveMode OFF/Av: ""
+*sv.TonerSaveMode ON/På: ""
+*sv.Translation BRImproveOutput/Förbättringsinställningar: ""
+*sv.BRImproveOutput OFF/Av: ""
+*sv.BRImproveOutput BRLessPaperCurl/Motverka att papperet böjer sig: ""
+*sv.BRImproveOutput BRFixIntensity/Förbättra tonerns fästförmåga: ""
+*sv.Translation BRSkipBlank/Hoppa över tom sida: ""
+*sv.BRSkipBlank OFF/Av: ""
+*sv.BRSkipBlank ON/På: ""
+*sv.Translation BRDensityAdjustment/Justering av utskriftssvärta: ""
+*sv.BRDensityAdjustment Default/Skrivarstandard: ""
+*sv.BRDensityAdjustment Custom/Manual: ""
+*sv.CustomBRDensityAdjustment True/Manuell: ""
+*sv.ParamCustomBRDensityAdjustment Density/Justering av utskriftssvärta: ""
+*sv.BRDensityAdjustment Custom/Manual: ""
+*sv.APPrinterPreset TonerSavePrint/Utskrift med tonerbesparing: ""
+*% Russian localization
+*ru.Translation ModelName/Brother HL-1110 series: ""
+*ru.Translation General/General: ""
+*ru.cupsMarkerName Black/Тонер-картридж: ""
+*ru.cupsMarkerName OPC/Ленточный картридж: ""
+*ru.cupsMarkerName WasteToner/Контейнер для отработанного тонера: ""
+*ru.cupsMarkerName Fuser/Блок термозакрепления тонера: ""
+*ru.cupsMarkerName 60KKit/Комплект 60K: ""
+*ru.cupsMarkerName 120KKit/Комплект 120K: ""
+*ru.cupsMarkerName 240KKit/Комплект 240K: ""
+*ru.cupsMarkerName PFKit1/Комплект подачи бумаги 1: ""
+*ru.cupsMarkerName PFKit2/Комплект подачи бумаги 2: ""
+*ru.cupsMarkerName PFKit3/Комплект подачи бумаги 3: ""
+*ru.cupsMarkerName PFKit4/Комплект подачи бумаги 4: ""
+*ru.cupsMarkerName Drum/Фотобарабан: ""
+*ru.cupsIPPReason com.brother.marker-supply-empty-warning/Замените тонер: ""
+*ru.cupsIPPReason com.brother.generic-warning/　: ""
+*ru.Translation PageSize/Media Size: ""
+*ru.PageSize A4/A4: ""
+*ru.PageSize Letter/Letter: ""
+*ru.PageSize Legal/Legal: ""
+*ru.PageSize FanFoldGermanLegal/Folio: ""
+*ru.PageSize Custom/Custom: ""
+*ru.Translation PageRegion/PageRegion: ""
+*ru.PageRegion A4/A4: ""
+*ru.PageRegion Letter/Letter: ""
+*ru.PageRegion Legal/Legal: ""
+*ru.PageRegion FanFoldGermanLegal/Folio: ""
+*ru.PageRegion Custom/Custom: ""
+*ru.Translation BRMediaType/Тип печатного носителя: ""
+*ru.BRMediaType Plain/Обычная бумага: ""
+*ru.BRMediaType Recycled/Переработанная бумага: ""
+*ru.Translation BRResolution/Качество печати: ""
+*ru.BRResolution 300dpi/Черновик: ""
+*ru.BRResolution 300x600dpi/Нормальное: ""
+*ru.BRResolution 600dpi/Высокое: ""
+*ru.Translation BRHalfTonePattern/Качество графики: ""
+*ru.BRHalfTonePattern Brother/Графика: ""
+*ru.BRHalfTonePattern Brother4/Текст: ""
+*ru.Translation TonerSaveMode/Режим экономии тонера: ""
+*ru.TonerSaveMode OFF/Выкл.: ""
+*ru.TonerSaveMode ON/Вкл.: ""
+*ru.Translation BRImproveOutput/Настройки улучшения: ""
+*ru.BRImproveOutput OFF/Выкл.: ""
+*ru.BRImproveOutput BRLessPaperCurl/Уменьшение скручивания бумаги: ""
+*ru.BRImproveOutput BRFixIntensity/Усиление фиксации тонера: ""
+*ru.Translation BRSkipBlank/Пропуск пустой страницы: ""
+*ru.BRSkipBlank OFF/Выкл.: ""
+*ru.BRSkipBlank ON/Вкл.: ""
+*ru.Translation BRDensityAdjustment/Регулировка плотности: ""
+*ru.BRDensityAdjustment Default/По умолчанию для принтера: ""
+*ru.BRDensityAdjustment Custom/Manual: ""
+*ru.CustomBRDensityAdjustment True/Ручная: ""
+*ru.ParamCustomBRDensityAdjustment Density/Регулировка плотности: ""
+*ru.BRDensityAdjustment Custom/Manual: ""
+*ru.APPrinterPreset TonerSavePrint/Печать с экономией тонера: ""
+*cupsLanguages: "zh_CN zh_TW da nl fi fr de it ja ko no pt pt_PT es sv ru"
+

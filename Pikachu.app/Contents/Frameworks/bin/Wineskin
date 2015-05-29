@@ -1,0 +1,3 @@
+#!/bin/bash
+#temporary passthrough for WineskinX11 until a new version of it is made to point to WineskinLauncher
+"$(dirname "$0")/../../MacOS/WineskinLauncher" "$@"
